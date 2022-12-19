@@ -71,6 +71,7 @@ simple_test() ->
     {ok, SecondaryPid2} = bank_secondary:start_link(Pid),
     deposit(Pid, mike, 100),
     {ok, 100} = get_balance(Pid, mike),
+    timer:sleep(1000),
     {ok, 100} = get_balance(SecondaryPid1, mike),
     {ok, 100} = get_balance(SecondaryPid2, mike).
 
