@@ -8,5 +8,8 @@ init(_) ->
               intensity => 5, period => 3600},
     PrimarySpec = #{id => primary,
                     start => {bank, start_link, []},
+                    restart => transient,
+                    shutdown => brutal_kill,
+                    
                     }
     {ok, {Flags, Children}}.
