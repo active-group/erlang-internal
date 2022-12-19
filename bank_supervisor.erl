@@ -11,4 +11,4 @@ init(_) ->
                     restart => transient,
                     shutdown => brutal_kill
                     },
-    {ok, {Flags, Children}}.
+    {ok, {Flags, [PrimarySpec]}}.
