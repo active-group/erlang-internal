@@ -1,5 +1,7 @@
 -module(bank_supervisor).
 
+-export([init/1])
+
 -behavior(supervisor).
 
 init(_) ->
