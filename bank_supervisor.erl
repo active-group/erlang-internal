@@ -3,5 +3,5 @@
 -behavior(supervisor).
 
 init(_) ->
-    Flags = #{}
+    Flags = #{strategy => }
     {ok, {Flags, Children}}.
