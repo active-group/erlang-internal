@@ -16,9 +16,10 @@ init(_) ->
                     restart => transient,
                     shutdown => brutal_kill
                     },
-    {ok, {Flags, [secondary_spec(secondary1), 
-                  secondary_spec(secondary2),
-                  PrimarySpec]}}.
+    {ok, {Flags, [PrimarySpec,
+                  secondary_spec(secondary1), 
+                  secondary_spec(secondary2)
+                  ]}}.
 
 secondary_spec(Id) ->
     #{id => Id,
