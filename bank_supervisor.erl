@@ -9,7 +9,6 @@ init(_) ->
     PrimarySpec = #{id => primary,
                     start => {bank, start_link, []},
                     restart => transient,
-                    shutdown => brutal_kill,
-                    
-                    }
+                    shutdown => brutal_kill
+                    },
     {ok, {Flags, Children}}.
