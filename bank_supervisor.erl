@@ -1,11 +1,11 @@
 -module(bank_supervisor).
 
--export([init/1]).
+-export([init/1, start_link/0]).
 
 -behavior(supervisor).
 
 start_link() ->
-    supervisor:start_link(?MODULE, dont_care).
+    supervisor:start_link(?MODULE, passed_to_init).
 
 init(_) ->
     Flags = #{strategy => rest_for_one,
