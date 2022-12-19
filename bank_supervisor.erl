@@ -4,6 +4,9 @@
 
 -behavior(supervisor).
 
+start_link() ->
+    supervisor:start_link(?MODULE, dont_care).
+
 init(_) ->
     Flags = #{strategy => rest_for_one,
               % in 3600s nicht mehr als 5 Neustarts
