@@ -17,3 +17,9 @@ init(_) ->
                     shutdown => brutal_kill
                     },
     {ok, {Flags, [PrimarySpec]}}.
+
+secondary_spec(PrimaryPid, Id) ->
+    #{id => Id,
+      start => {bank_secondary, start_link, [PrimaryPid]},
+      restart => transient,
+      shutdown => brutal_kill}.
