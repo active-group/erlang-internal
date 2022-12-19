@@ -49,7 +49,7 @@ init(_) ->
     {ok, #bank_state { balances = #{}, secondaries = []}}.
 
 start_link() ->
-    gen_server:start_link(?MODULE, dont_care, [{debug, [trace]}]).
+    gen_server:start_link(bank_primary, ?MODULE, dont_care, [{debug, [trace]}]).
 
 -spec deposit(pid(), name(), non_neg_integer()) -> ok.
 deposit(Pid, Name, Amount) ->
