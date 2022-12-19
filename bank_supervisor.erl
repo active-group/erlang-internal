@@ -16,12 +16,12 @@ init(_) ->
                     restart => transient,
                     shutdown => brutal_kill
                     },
-    {ok, {Flags, [secondary_spec(s, secondary1), 
-                  secondary_spec(s, secondary2),
+    {ok, {Flags, [secondary_spec(secondary1), 
+                  secondary_spec(secondary2),
                   PrimarySpec]}}.
 
-secondary_spec(PrimaryPid, Id) ->
+secondary_spec(Id) ->
     #{id => Id,
-      start => {bank_secondary, start_link, [PrimaryPid]},
+      start => {bank_secondary, start_link, [bank_primary]},
       restart => transient,
       shutdown => brutal_kill}.
