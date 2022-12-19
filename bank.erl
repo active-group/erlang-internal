@@ -67,6 +67,8 @@ register_secondary(PrimaryPid, SecondaryPid) ->
 
 simple_test() ->
     {ok, Pid} = start_link(),
+    {ok, SecondaryPid1} = bank_secondary:start_link(Pid),
+    {ok, SecondaryPid2} = bank_secondary:start_link(Pid),
     deposit(Pid, mike, 100),
     {ok, 100} = get_balance(Pid, mike).
     
